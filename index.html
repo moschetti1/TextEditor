@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WYSIWYG</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row tools py-5">
+        <!--titulo-->
+        <div class="col-12 text-center my-2">
+            <h2>Editor de texto js y HTML 5.</h2>
+        </div>
+
+        <!--Botones y demas-->
+        <div class="col-12 text-center">
+            <select class=" m-1 form-control-sm" onchange="execCmdArgs('fontName', this.value)" name="" id="">
+                <option value="">Fuente</option>
+                <option class="h3 arial" value="Arial">Arial</option>
+                <option class="h3 comic" value="Comic Sans MS">Comic Sans MS</option>
+                <option class="h3 courier" value="Courier">Courier</option>
+                <option class="h3 georgia" value="Georgia">Georgia</option>
+                <option class="h3 tahoma" value="Tahoma">Tahoma</option>
+                <option class="h3 times" value="Times New Roman">Times New Roman</option>
+                <option class="h3 verdana" value="Verdana">Verdana</option>
+            </select>
+        
+            <select class="m-1 form-control-sm" onchange="execCmdArgs('fontSize', this.value)" name="" id="">
+                <option value="">Tamaño fuente</option>
+                <option class="h1" value="7">H1</option>
+                <option class="h2" value="6">H2</option>
+                <option class="h3" value="5">H3</option>
+                <option class="h4" value="4">H4</option>
+                <option class="h5" value="3">H5</option>
+                <option class="h6" value="2">H6</option>
+                <option class="h7" value="1">H7</option>
+            </select>
+        
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('bold')"><i class="fa fa-bold"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('italic')"><i class="fa fa-italic"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('strikeThrough')"><i class="fa fa-strikethrough"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('justifyLeft')"><i class="fas fa-align-left"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('justifyCenter')"><i class="fa fa-align-center"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('justifyFull')"><i class="fa fa-align-justify"></i></button> 
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('insertOrderedList')"><i class="fas fa-list-ol"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('insertUnorderedList')"><i class="fas fa-list-ul"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('indent')"><i class="fas fa-indent"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('outdent')"><i class="fas fa-outdent"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('insertHorizontalRule')">HR</button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('createLink', prompt('Ingresa una URl', 'http://'))"><i class="fas fa-link"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="cmd('unLink')"><i class="fas fa-unlink"></i></button>
+            <button class="m-1 btn btn-sm btn-link text-dark border simple-cmd" onclick="toggleSrc()"><i class="fas fa-code"></i></button>
+    
+            <input list="colorList" class="m-1 btn btn-sm btn-link text-dark border rounded" id="color" type="color" onchange="execCmdArgs('foreColor', this.value)">
+            <datalist id="colorList">
+                <option>#000000</option>
+                <option>#555555</option>
+                <option>#AD1111</option>
+                <option>#1D2C89</option>
+                <option>#1C922C</option>
+                <option>#22937C</option>
+                <option>#345990</option>
+            </datalist>
+            
+            <p class="text-center"> 
+                <mark>Caracteres:</mark><mark id="count">0</mark> 
+                <mark>Tiempo de lectura:</mark><mark id="time">0</mark>
+            </p>
+                    
+        </div>
+
+        <div class="col-12 my-2">
+                <iframe  name="entradaBody" style="height: 50vh;"  class="entrada col-11 mx-auto" >
+                    
+                </iframe>
+        </div>
+        
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
